@@ -3,6 +3,7 @@
 ![My animated GitHub profile](./profile.svg)
 [![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
 
+
 Create a polished, animated GitHub profile SVG that fills itself with **real GitHub statistics** and can be customized with your own profile information.
 
 **Privacy/data scope:** by default, repository statistics are collected from **public repositories only**. If you want the generator to include private-repository statistics, provide a GitHub **PAT_TOKEN** to the action; it is optional and is never written into the generated SVG or config.
