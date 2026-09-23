@@ -489,7 +489,7 @@
     <text x="24" y="13" class="heading-font text-slate-900" font-size="12" font-weight="800" letter-spacing="0.4">GITHUB LIVE OVERVIEW (ALL-TIME)</text>
     <g transform="translate(0, 26)">
       <rect x="0" y="0" width="74" height="54" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
-      <text x="37" y="24" text-anchor="middle" class="body-font text-slate-900" font-size="14" font-weight="900">2.3k+</text>
+      <text x="37" y="24" text-anchor="middle" class="body-font text-slate-900" font-size="14" font-weight="900">1.1k+</text>
       <text x="37" y="40" text-anchor="middle" class="body-font text-slate-500" font-size="8.5" font-weight="700">COMMITS</text>
 
       <rect x="81" y="0" width="74" height="54" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="0.8"/>
@@ -581,7 +581,7 @@
 
     <g transform="translate(48, 48)">
       <rect width="40" height="40" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" class="keycap-bg"/>
-      <image href="" x="8" y="8" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+      <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjMTU3MkI2IiBkPSJNMTguODE0IDExNC4xMjNMOC43NiAxLjM1MmgxMTAuNDhsLTEwLjA2NCAxMTIuNzU0LTQ1LjI0MyAxMi41NDMtNDUuMTE5LTEyLjUyNnoiLz48cGF0aCBmaWxsPSIjMzNBOURDIiBkPSJNNjQuMDAxIDExNy4wNjJsMzYuNTU5LTEwLjEzNiA4LjYwMS05Ni4zNTRoLTQ1LjE2djEwNi40OXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjQuMDAxIDUxLjQyOWgxOC4zMDJsMS4yNjQtMTQuMTYzSDY0LjAwMVYyMy40MzVoMzQuNjgybC0uMzMyIDMuNzExLTMuNCAzOC4xMTRoLTMwLjk1VjUxLjQyOXoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQuMDgzIDg3LjM0OWwtLjA2MS4wMTgtMTUuNDAzLTQuMTU5LS45ODUtMTEuMDMxSDMzLjc1MmwxLjkzNyAyMS43MTcgMjguMzMxIDcuODYzLjA2My0uMDE4di0xNC4zOXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNODEuMTI3IDY0LjY3NWwtMS42NjYgMTguNTIyLTE1LjQyNiA0LjE2NHYxNC4zOWwyOC4zNTQtNy44NTguMjA4LTIuMzM3IDIuNDA2LTI2Ljg4MUg4MS4xMjd6Ii8+PHBhdGggZmlsbD0iI0VCRUJFQiIgZD0iTTY0LjA0OCAyMy40MzV2MTMuODMxSDMwLjY0bC0uMjc3LTMuMTA4LS42My03LjAxMi0uMzMxLTMuNzExaDM0LjY0NnptLS4wNDcgMjcuOTk2djEzLjgzMUg0OC43OTJsLS4yNzctMy4xMDgtLjYzMS03LjAxMi0uMzMtMy43MTFoMTYuNDQ3eiIvPjwvc3ZnPgo=" x="8" y="8" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
     </g>
     
     </g>
