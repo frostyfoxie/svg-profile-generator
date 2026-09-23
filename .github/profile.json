@@ -12,33 +12,45 @@
   },
   "achievements": [
     {
-      "year": "2026",
-      "title": "Project milestone",
-      "description": "Replace, this with a real achievement, competition, certification, or milestone."
+      "year": "2024",
+      "title": "Milestone",
+      "description": "Best CSS Award"
     },
     {
       "year": "2025",
-      "title": "Learning milestone",
-      "description": "Replace this with another real achievement or experience."
+      "title": "Winner",
+      "description": "AI AGENT"
+    }
+    {
+      "year": "2026",
+      "title": "Runner Up",
+      "description": "AI AGENT (Mock Data)"
     }
   ],
   "skills": [
-    "Python",
-    "JavaScript",
-    "AI / ML",
-    "UI / UX",
-    "Git",
-    "Problem Solving"
+    "Frontend",
+    "Agentic AI",
+    "RAG Based AI",
+    "UI/UX Design",
+    "Web Development",
+    "Creative Design",
+    "Graphics Designing",
+    "Creative Writting"
   ],
   "tech_stack": [
-    "python",
-    "javascript",
-    "typescript",
-    "react",
-    "nextdotjs",
+    "vercel",
+    "supabase",
+    "huggingface",
     "github",
-    "git",
-    "html5",
-    "css3"
+    "claude",
+    "gemini",
+    "python",
+    "typescript",
+    "firebase",
+    "chatgpt",
+    "java",
+    "vite",
+    "discord",
+    "html"
   ]
 }
