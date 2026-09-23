@@ -47,5 +47,5 @@
 <image href="" x="22" y="21" width="22" height="22" preserveAspectRatio="xMidYMid meet" />
 
 <!-- Label -->
-<text x="54" y="37" class="btn-text">None</text>
+<text x="54" y="37" class="btn-text">you@example.com</text>
 </svg>

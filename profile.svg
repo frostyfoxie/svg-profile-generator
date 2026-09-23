@@ -94,9 +94,9 @@
 <!-- TOP ROW: BEHIND THE CODE & ID BADGE -->
 <g transform="translate(45, 50)">
   <text x="0" y="24" class="heading-font text-slate-900" font-size="28" font-weight="900" letter-spacing="-0.5">Behind the Code</text>
-  <text x="0" y="48" class="body-font text-slate-500" font-size="11.5" font-weight="700" letter-spacing="0.5">STUDENT · WEB DEV · AI DEV · CURIOUS MIND</text>
+  <text x="0" y="48" class="body-font text-slate-500" font-size="11.5" font-weight="700" letter-spacing="0.5">STUDENT · CREATOR · CURIOUS MIND</text>
   <text x="0" y="86" class="body-font text-slate-700" font-size="13" font-weight="500">
-    
+    <tspan x="0" dy="0">I build difficult things and care about polished interfaces.</tspan>
   </text>
 </g>
 
@@ -468,7 +468,13 @@
   <rect width="365" height="285" rx="20" class="glass-card"/>
   <g transform="translate(24, 20)">
     <text x="0" y="16" class="heading-font text-slate-900" font-size="18" font-weight="900">Achievements</text>
-    
+    <line x1="6" y1="30" x2="6" y2="30" stroke="#cbd5e1" stroke-width="1.5"/>
+
+        <circle cx="6" cy="30" r="3.5" fill="#3b82f6"/>
+        <text x="20" y="34" class="body-font text-slate-900" font-size="11" font-weight="900">2026</text>
+        <text x="60" y="34" class="body-font text-slate-900" font-size="11" font-weight="800">Achievement title</text>
+        <text x="60" y="46" class="body-font text-slate-500" font-size="10" font-weight="500">Short supporting detail</text>
+        
   </g>
 
   <g transform="translate(24, 160)">
@@ -499,7 +505,10 @@
   <g transform="translate(24, 20)">
     <text x="0" y="16" class="heading-font text-slate-900" font-size="18" font-weight="900">Skills</text>
     <g transform="translate(0, 28)">
-      
+          <rect x="0" y="0" width="62" height="26" rx="13" class="pill-bg"/>
+    <text x="31.0" y="17" text-anchor="middle" class="pill-text">Python</text>
+    <rect x="70" y="0" width="124" height="26" rx="13" class="pill-bg"/>
+    <text x="132.0" y="17" text-anchor="middle" class="pill-text">Web Development</text>
     </g>
   </g>
 
@@ -507,6 +516,23 @@
     <text x="0" y="14" class="heading-font text-slate-900" font-size="12" font-weight="800" letter-spacing="0.4">TECH STACK</text>
     <g transform="translate(0, 24)">
       
+    <g transform="translate(0, 0)">
+      <rect width="40" height="40" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" class="keycap-bg"/>
+      <image href="" x="8" y="8" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+    
+
+    <g transform="translate(48, 0)">
+      <rect width="40" height="40" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" class="keycap-bg"/>
+      <image href="" x="8" y="8" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+    
+
+    <g transform="translate(96, 0)">
+      <rect width="40" height="40" fill="#ffffff" stroke="#e2e8f0" stroke-width="1" class="keycap-bg"/>
+      <image href="" x="8" y="8" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+    
     </g>
   </g>
 </g>
