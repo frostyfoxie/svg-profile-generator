@@ -1,0 +1,54 @@
+name: SVG Profile Generator
+description: Generate and optionally commit an animated GitHub profile SVG with one workflow step
+inputs:
+  github-token:
+    description: GitHub token used to read profile and contribution data
+    required: false
+    default: ${{ github.token }}
+  username:
+    description: GitHub username to generate the profile for
+    required: false
+    default: ${{ github.repository_owner }}
+  config-path:
+    description: Optional path to your profile JSON configuration
+    required: false
+    default: .github/profile.json
+  output-directory:
+    description: Directory where generated SVG files are written
+    required: false
+    default: .
+  source-ref:
+    description: Pinned source revision of the profile generator
+    required: false
+    default: 36fb7ea9c9021ffc28d0e7f81d1d41c83f5fb347
+  commit:
+    description: Commit generated SVG files automatically
+    required: false
+    default: 'true'
+runs:
+  using: composite
+  steps:
+    - name: Generate animated SVG profile
+      shell: bash
+      env:
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_USERNAME: ${{ inputs.username }}
+        INPUT_CONFIG_PATH: ${{ inputs.config-path }}
+        INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+        INPUT_SOURCE_REF: ${{ inputs.source-ref }}
+      run: python "${{ github.action_path }}/scripts/run_generator.py"
+    - name: Commit generated profile
+      if: ${{ inputs.commit == 'true' }}
+      shell: bash
+      env:
+        INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git add -- "$INPUT_OUTPUT_DIRECTORY/profile.svg" "$INPUT_OUTPUT_DIRECTORY/btn_github.svg" "$INPUT_OUTPUT_DIRECTORY/btn_instagram.svg" "$INPUT_OUTPUT_DIRECTORY/btn_email.svg"
+        if git diff --cached --quiet; then
+          echo "Profile is already up to date."
+        else
+          git commit -m "chore: update SVG profile"
+          git push
+        fi
