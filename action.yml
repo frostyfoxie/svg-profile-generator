@@ -9,11 +9,11 @@ inputs:
   github-token:
     description: GitHub token used to read profile and contribution data
     required: false
-    default: ${{ github.token }}
+    default: ''
   username:
     description: GitHub username to generate the profile for
     required: false
-    default: ${{ github.repository_owner }}
+    default: ''
   config-path:
     description: Public profile configuration file; created automatically on first run
     required: false
@@ -37,8 +37,8 @@ runs:
     - name: Generate animated SVG profile
       shell: bash
       env:
-        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
-        INPUT_USERNAME: ${{ inputs.username }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token || github.token }}
+        INPUT_USERNAME: ${{ inputs.username || github.repository_owner }}
         INPUT_CONFIG_PATH: ${{ inputs.config-path }}
         INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
         INPUT_SOURCE_REF: ${{ inputs.source-ref }}
