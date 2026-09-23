@@ -36,7 +36,7 @@ DEFAULT_CONFIG = {
     "skills": ["Python", "JavaScript", "AI / ML", "UI / UX", "Git", "Problem Solving"],
     "tech_stack": [
         "python", "javascript", "typescript", "react", "nextdotjs",
-        "github", "git", "html5", "css3"
+        "github", "git", "html5"
     ],
 }
 
