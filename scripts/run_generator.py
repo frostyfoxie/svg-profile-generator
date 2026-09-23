@@ -188,21 +188,8 @@ def main() -> int:
         template = template_path.read_text(encoding="utf-8")
         template = template.replace(">Education</text>", ">Achievements</text>")
 
-        # Keep generated text visually inside its dedicated cards. This is applied
-        # locally so the action remains self-contained and does not modify the
-        # upstream source repository.
-        template = template.replace(
-            '<g transform="translate(45, 650)">\n  <rect width="365" height="285" rx="20" class="glass-card"/>',
-            '<g transform="translate(45, 650)">\n  <defs><clipPath id="profileLeftCardClip"><rect x="0" y="0" width="365" height="285" rx="20"/></clipPath></defs>\n  <rect width="365" height="285" rx="20" class="glass-card"/>\n  <g clip-path="url(#profileLeftCardClip)">'
-        )
-        template = template.replace(
-            '<g transform="translate(430, 650)">\n  <rect width="385" height="285" rx="20" class="glass-card"/>',
-            '<g transform="translate(430, 650)">\n  <defs><clipPath id="profileRightCardClip"><rect x="0" y="0" width="385" height="285" rx="20"/></clipPath></defs>\n  <rect width="385" height="285" rx="20" class="glass-card"/>\n  <g clip-path="url(#profileRightCardClip)">'
-        )
-        # Close the two clipping groups immediately before the root SVG closes.
-        template = template.replace("</g>\n</svg>", "</g>\n</g>\n</svg>", 1)
-        template = template.replace("</g>\n</svg>", "</g>\n</g>\n</svg>", 1)
-
+        # The pinned source template already contains card clipping so long text
+        # stays inside its dedicated containers. Only rename the visible section title.
         template_path.write_text(template, encoding="utf-8")
 
         env = os.environ.copy()
