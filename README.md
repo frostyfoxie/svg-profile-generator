@@ -254,17 +254,83 @@ Check the workflow log. Upload a matching icon to `icons/` if the CDN is unavail
 
 Run the workflow successfully first. `profile.svg` must exist before embedding it.
 
-## 📦 Marketplace
+## 🛒 GitHub Marketplace
 
-This repository is structured as a GitHub Action with the required root `action.yml`.
+**SVG Profile Generator** is a GitHub Action, so users install it by adding the Marketplace action to a workflow in their own profile repository.
 
-For a Marketplace release:
+### Using the Marketplace action
 
-1. Keep the repository public.
-2. Create a semantic-version release such as `v1.0.0`.
-3. Select **Publish this Action to the GitHub Marketplace**.
-4. Choose a category and publish.
-5. Keep the `v1` major tag pointing to the latest compatible release.
+After publication, users can search for **SVG Profile Generator** in GitHub Marketplace and use the generated workflow snippet. The setup is:
+
+1. In the user's profile repository, enable **Settings → Actions → General → Workflow permissions → Read and write permissions**.
+2. Create `.github/workflows/svg-profile.yml`.
+3. Add the Marketplace action:
+
+```yaml
+name: Update GitHub Profile SVG
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/profile.json'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Generate profile
+        uses: frostyfoxie/svg-profile-generator@v1
+```
+
+4. Commit the workflow.
+5. Run it once from **Actions → Update GitHub Profile SVG → Run workflow**.
+6. The action automatically creates `.github/profile.json` with mock-but-realistic editable data on the first run, generates the SVG files, and commits them.
+7. Replace the mock values in `.github/profile.json` with the user's real information and commit the file.
+8. The workflow regenerates the profile automatically whenever the config changes, and the scheduled run refreshes GitHub statistics.
+
+### Private-repository statistics
+
+Public repository statistics are the default. Users who want private-repository statistics can create a repository secret named `PAT_TOKEN` and pass it to the action:
+
+```yaml
+      - name: Generate profile
+        uses: frostyfoxie/svg-profile-generator@v1
+        with:
+          pat-token: ${{ secrets.PAT_TOKEN }}
+```
+
+The PAT must be stored as a GitHub repository secret. It should never be pasted directly into the workflow or `.github/profile.json`.
+
+### Marketplace publishing checklist
+
+Before publishing:
+
+- Repository is **public**.
+- Root `action.yml` exists and describes this action.
+- The action has a unique Marketplace name.
+- README explains installation, inputs, secrets, outputs and workflow usage.
+- A semantic version release is ready, for example `v1.0.0`.
+- The GitHub Marketplace Developer Agreement has been accepted.
+- Two-factor authentication is enabled for the publishing account.
+
+GitHub's current publishing flow is: open the repository's `action.yml`, choose **Draft a release**, select **Publish this Action to the GitHub Marketplace**, choose a primary category, enter the release tag/version and release title, then publish the release. GitHub says Actions that meet the requirements are published to Marketplace immediately after release publication. citeturn0search0turn0search5
+
+For future releases, keep the `v1` major tag pointing to the latest compatible `v1.x.x` release so users can continue using:
+
+```yaml
+uses: frostyfoxie/svg-profile-generator@v1
+```
+
+GitHub recommends semantic versioning and maintaining major-version tags for Actions. citeturn0search5turn0search8
 
 ## License / attribution
 
