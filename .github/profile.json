@@ -1,0 +1,44 @@
+{
+  "_setup": "Generated automatically by SVG Profile Generator. Replace the mock profile fields with your own data.",
+  "contact": {
+    "instagram": "your_instagram",
+    "email": "you@example.com"
+  },
+  "behind_the_code": {
+    "subheading": "STUDENT · CREATOR · AI ENTHUSIAST",
+    "description": [
+      "I build ambitious software projects, explore AI, and care about polished user experiences."
+    ]
+  },
+  "achievements": [
+    {
+      "year": "2026",
+      "title": "Project milestone",
+      "description": "Replace this with a real achievement, competition, certification, or milestone."
+    },
+    {
+      "year": "2025",
+      "title": "Learning milestone",
+      "description": "Replace this with another real achievement or experience."
+    }
+  ],
+  "skills": [
+    "Python",
+    "JavaScript",
+    "AI / ML",
+    "UI / UX",
+    "Git",
+    "Problem Solving"
+  ],
+  "tech_stack": [
+    "python",
+    "javascript",
+    "typescript",
+    "react",
+    "nextdotjs",
+    "github",
+    "git",
+    "html5",
+    "css3"
+  ]
+}
