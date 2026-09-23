@@ -4,6 +4,8 @@
 
 Create a polished, animated GitHub profile SVG that fills itself with **real GitHub statistics** and can be customized with your own profile information.
 
+**Privacy/data scope:** by default, repository statistics are collected from **public repositories only**. If you want the generator to include private-repository statistics, provide a GitHub **PAT_TOKEN** to the action; it is optional and is never written into the generated SVG or config.
+
 The first run is designed to be beginner-friendly: **the action creates `.github/profile.json` for you with mock-but-realistic data.** You do not have to manually create the configuration file before running the workflow.
 
 ## 🚀 Setup — follow these steps in order
@@ -57,6 +59,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Generate profile
         uses: frostyfoxie/svg-profile-generator@v1
+        # Optional: add pat-token: ${{ secrets.PAT_TOKEN }} for private-repository statistics
 ```
 
 Commit the workflow file.
@@ -88,13 +91,13 @@ After the first workflow succeeds, add:
 ![My animated GitHub profile](./profile.svg)
 ```
 
-You can also use the generated buttons:
+You can also use the three generated buttons. They are generated at **exactly one-third of the profile width each**, so together they equal the profile SVG width exactly (**860px**) and are intended to render as one continuous row:
 
 ```markdown
-[![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)
-[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)
-[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
+[![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
 ```
+
+Do not insert spaces or line breaks between the three button images.
 
 ### Step 4 — Replace the mock data with your real data
 
@@ -200,9 +203,19 @@ All fields have defaults, but **replace the generated mock profile content with 
 
 The example workflow runs every 6 hours, can be run manually, and also runs when `.github/profile.json` changes.
 
-Real GitHub statistics are fetched during every generation, so commits, repositories, stars and contribution activity are refreshed automatically.
+Real GitHub statistics are fetched during every generation, so commits, repositories, stars and contribution activity are refreshed automatically. **Without `PAT_TOKEN`, repository counts/stars are public-repository-only.** To include private-repository statistics, add a repository secret named `PAT_TOKEN` and pass it as `pat-token: ${{ secrets.PAT_TOKEN }}` in the workflow.
 
 ## 🛠️ Troubleshooting
+
+### Public vs private repository statistics
+
+The default workflow uses the normal GitHub Actions token and keeps repository statistics **public-only**. For private-repository statistics, create a repository secret named `PAT_TOKEN` and add:
+
+```yaml
+pat-token: ${{ secrets.PAT_TOKEN }}
+```
+
+Never paste a PAT directly into the workflow or `.github/profile.json`.
 
 ### The workflow cannot push
 
