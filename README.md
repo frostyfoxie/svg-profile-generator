@@ -96,7 +96,7 @@ You should **not** manually create the config file before this first run.
 
 After the first workflow succeeds, add:
 
-```
+```markdown
 <div align="center">
   <img src="./profile.svg" width="100%" />
 </div>
@@ -104,9 +104,11 @@ After the first workflow succeeds, add:
 
 You can also use the three generated buttons. They are generated at **exactly one-third of the profile width each**, so together they equal the profile SVG width exactly (**860px**) and are intended to render as one continuous row:
 
-```<div align="center">
+```markdown
+<div align="center">
   <a href="https://instagram.com/oneinagoogolplex._" target="_blank"><img src="./btn_instagram.svg" width="33.3%" /></a><a href="mailto:navneetkrgupta01@gmail.com"><img src="./btn_email.svg" width="33.3%" /></a><a href="https://github.com/Navneet-2008" target="_blank"><img src="./btn_github.svg" width="33.3%" /></a>
-</div>```
+</div>
+```
 
 Do not insert spaces or line breaks between the three button images.
 
