@@ -475,7 +475,7 @@
 <circle cx="6" cy="30" r="3.5" fill="#3b82f6"/>
 <text x="20" y="34" class="body-font text-slate-900" font-size="10.5" font-weight="900">2026</text>
 <text x="60" y="34" class="body-font text-slate-900" font-size="10.5" font-weight="800">Project milestone</text>
-<text x="60" y="47" class="body-font text-slate-500" font-size="9.2" font-weight="500">Replace this with a real…</text>
+<text x="60" y="47" class="body-font text-slate-500" font-size="9.2" font-weight="500">Replace, this with a real…</text>
 <circle cx="6" cy="82" r="3.5" fill="#3b82f6"/>
 <text x="20" y="86" class="body-font text-slate-900" font-size="10.5" font-weight="900">2025</text>
 <text x="60" y="86" class="body-font text-slate-900" font-size="10.5" font-weight="800">Learning milestone</text>
