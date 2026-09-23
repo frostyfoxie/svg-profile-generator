@@ -65,7 +65,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Generate profile
         uses: frostyfoxie/svg-profile-generator@v1
-        # Optional: add pat-token: ${{ secrets.PAT_TOKEN }} for private-repository statistics
+        with:
+          pat-token: ${{ secrets.PAT_TOKEN }}:
+          
 ```
 
 Commit the workflow file.
