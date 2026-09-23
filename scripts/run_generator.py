@@ -167,6 +167,20 @@ def main() -> int:
         for source_file in SOURCE_FILES:
             download(source_file, source_ref, root / source_file)
 
+        # Keep repository statistics public-only unless the user explicitly supplies PAT_TOKEN.
+        renderer_path = root / "scripts/update_svg.py"
+        renderer = renderer_path.read_text(encoding="utf-8")
+        if not pat_token:
+            renderer = renderer.replace(
+                "https://api.github.com/user/repos?affiliation=owner&visibility=all&per_page=100&page={page}",
+                "https://api.github.com/users/{USERNAME}/repos?type=owner&visibility=public&per_page=100&page={page}",
+            )
+            renderer = renderer.replace(
+                "total_commits += col.get(\"totalCommitContributions\", 0) + col.get(\"restrictedContributionsCount\", 0)",
+                "total_commits += col.get(\"totalCommitContributions\", 0)",
+            )
+        renderer_path.write_text(renderer, encoding="utf-8")
+
         ensure_config(config_path, root / "config.json")
         prepare_icons(workspace / "icons", root / "icons", config_path)
 
@@ -191,7 +205,13 @@ def main() -> int:
             "btn_instagram.svg",
             "btn_email.svg",
         ):
-            shutil.copy2(root / filename, output_dir / filename)
+            generated = root / filename
+            if filename.startswith("btn_"):
+                # Three buttons must tile the 860px profile width exactly, with no wrap.
+                button_svg = generated.read_text(encoding="utf-8")
+                button_svg = button_svg.replace('width="286" height="64" viewBox="0 0 286 64"', 'width="286.6666667" height="64" viewBox="0 0 286.6666667 64"')
+                generated.write_text(button_svg, encoding="utf-8")
+            shutil.copy2(generated, output_dir / filename)
             print(f"Wrote {output_dir / filename}")
 
 
