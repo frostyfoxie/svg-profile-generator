@@ -29,7 +29,7 @@ inputs:
   source-ref:
     description: Pinned source revision of the profile generator
     required: false
-    default: 36fb7ea9c9021ffc28d0e7f81d1d41c83f5fb347
+    default: 51221d298a8f6f79e91165e06e8a997428dac139
   commit:
     description: Commit generated SVGs and a newly created profile config automatically
     required: false
