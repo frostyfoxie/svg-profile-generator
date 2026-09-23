@@ -1,6 +1,4 @@
-name: SVG Profile Generator
-
-description: Generate and commit an animated GitHub profile SVG automatically.
+name: Update GitHub Profile SVG
 
 on:
   schedule:
@@ -19,5 +17,5 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Generate SVG profile
+      - name: Generate profile
         uses: frostyfoxie/svg-profile-generator@v1
