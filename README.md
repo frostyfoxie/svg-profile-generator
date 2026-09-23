@@ -7,9 +7,6 @@
   <a href="https://instagram.com/oneinagoogolplex._" target="_blank"><img src="./btn_instagram.svg" width="33.3%" /></a><a href="mailto:navneetkrgupta01@gmail.com"><img src="./btn_email.svg" width="33.3%" /></a><a href="https://github.com/Navneet-2008" target="_blank"><img src="./btn_github.svg" width="33.3%" /></a>
 </div>
 
-![My animated GitHub profile](./profile.svg)
-[![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
-
 
 Create a polished, animated GitHub profile SVG that fills itself with **real GitHub statistics** and can be customized with your own profile information.
 
