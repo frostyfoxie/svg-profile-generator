@@ -21,6 +21,33 @@ def download(path: str, ref: str, destination: Path) -> None:
         destination.write_bytes(response.read())
 
 
+def prepare_config(config_path: Path, destination: Path) -> None:
+    """Support the public 'achievements' schema while keeping the generator compatible."""
+    if not config_path.exists():
+        destination.write_text("{}\n", encoding="utf-8")
+        print(f"No {config_path} found; using the built-in defaults.")
+        return
+
+    config = json.loads(config_path.read_text(encoding="utf-8"))
+
+    # New public schema: achievements.
+    # The current renderer still calls this internal field education, so translate
+    # it here rather than exposing that implementation detail to users.
+    if "achievements" in config and "education" not in config:
+        translated = []
+        for item in config.get("achievements", []):
+            item = dict(item)
+            if "institution" not in item and "description" in item:
+                item["institution"] = item.pop("description")
+            translated.append(item)
+        config["education"] = translated
+
+    destination.write_text(
+        json.dumps(config, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def main() -> int:
     username = os.environ["INPUT_USERNAME"].strip()
     token = os.environ["INPUT_GITHUB_TOKEN"].strip()
@@ -41,21 +68,36 @@ def main() -> int:
 
     with tempfile.TemporaryDirectory(prefix="svg-profile-generator-") as temp:
         root = Path(temp)
+
         for source_file in SOURCE_FILES:
             download(source_file, source_ref, root / source_file)
 
-        # The upstream generator reads config.json from its own root.
-        if config_path.exists():
-            shutil.copy2(config_path, root / "config.json")
-        else:
-            (root / "config.json").write_text("{}\n", encoding="utf-8")
-            print(f"No {config_path} found; using the built-in defaults.")
+        prepare_config(config_path, root / "config.json")
+
+        # The upstream template currently uses "Education" as its visible heading.
+        # Keep the public action terminology as "Achievements" without requiring
+        # users to modify the upstream template.
+        template_path = root / "template.svg"
+        template = template_path.read_text(encoding="utf-8")
+        template = template.replace(">Education</text>", ">Achievements</text>")
+        template_path.write_text(template, encoding="utf-8")
 
         env = os.environ.copy()
         env.update({"GH_USERNAME": username, "GITHUB_TOKEN": token})
-        subprocess.run([sys.executable, str(root / "scripts/update_svg.py")], cwd=root, env=env, check=True)
 
-        for filename in ("profile.svg", "btn_github.svg", "btn_instagram.svg", "btn_email.svg"):
+        subprocess.run(
+            [sys.executable, str(root / "scripts/update_svg.py")],
+            cwd=root,
+            env=env,
+            check=True,
+        )
+
+        for filename in (
+            "profile.svg",
+            "btn_github.svg",
+            "btn_instagram.svg",
+            "btn_email.svg",
+        ):
             shutil.copy2(root / filename, output_dir / filename)
             print(f"Wrote {output_dir / filename}")
 
