@@ -1,0 +1,21 @@
+{
+  "contact": {
+    "instagram": "your_handle",
+    "email": "you@example.com"
+  },
+  "behind_the_code": {
+    "subheading": "STUDENT · CREATOR · CURIOUS MIND",
+    "description": [
+      "I build difficult things and care about polished interfaces."
+    ]
+  },
+  "achievements": [
+    {
+      "year": "2026",
+      "title": "Achievement title",
+      "description": "Short supporting detail"
+    }
+  ],
+  "skills": ["Python", "Web Development"],
+  "tech_stack": ["python", "github", "html"]
+}
