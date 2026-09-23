@@ -138,7 +138,9 @@ def prepare_icons(source_icons_dir: Path, destination_icons_dir: Path, config_pa
 
 def main() -> int:
     username = os.environ["INPUT_USERNAME"].strip()
-    token = os.environ["INPUT_GITHUB_TOKEN"].strip()
+    github_token = os.environ["INPUT_GITHUB_TOKEN"].strip()
+    pat_token = os.environ.get("INPUT_PAT_TOKEN", "").strip()
+    token = pat_token or github_token
     config_path = Path(os.environ["INPUT_CONFIG_PATH"])
     output_dir = Path(os.environ["INPUT_OUTPUT_DIRECTORY"])
     source_ref = os.environ["INPUT_SOURCE_REF"].strip()
@@ -147,6 +149,10 @@ def main() -> int:
         raise SystemExit("username must not be empty")
     if not token:
         raise SystemExit("github-token must not be empty")
+    if pat_token:
+        print("PAT_TOKEN provided: private repository statistics are enabled.")
+    else:
+        print("No PAT_TOKEN provided: repository statistics are limited to public repositories.")
     if not source_ref:
         raise SystemExit("source-ref must not be empty")
 
