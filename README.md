@@ -1,4 +1,5 @@
 # SVG Profile Generator
+![My animated GitHub profile](./profile.svg)
 
 Create a polished, animated GitHub profile SVG that updates itself from your real GitHub data.
 
