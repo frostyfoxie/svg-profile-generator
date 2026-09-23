@@ -1,5 +1,12 @@
 # SVG Profile Generator
 
+<div align="center">
+  <img src="./profile.svg" width="100%" />
+</div>
+<div align="center">
+  <a href="https://instagram.com/oneinagoogolplex._" target="_blank"><img src="./btn_instagram.svg" width="33.3%" /></a><a href="mailto:navneetkrgupta01@gmail.com"><img src="./btn_email.svg" width="33.3%" /></a><a href="https://github.com/Navneet-2008" target="_blank"><img src="./btn_github.svg" width="33.3%" /></a>
+</div>
+
 ![My animated GitHub profile](./profile.svg)
 [![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
 
@@ -89,15 +96,17 @@ You should **not** manually create the config file before this first run.
 
 After the first workflow succeeds, add:
 
-```markdown
-![My animated GitHub profile](./profile.svg)
+```
+<div align="center">
+  <img src="./profile.svg" width="100%" />
+</div>
 ```
 
 You can also use the three generated buttons. They are generated at **exactly one-third of the profile width each**, so together they equal the profile SVG width exactly (**860px**) and are intended to render as one continuous row:
 
-```markdown
-[![GitHub](./btn_github.svg)](https://github.com/YOUR_USERNAME)[![Instagram](./btn_instagram.svg)](https://instagram.com/YOUR_HANDLE)[![Email](./btn_email.svg)](mailto:YOUR_EMAIL)
-```
+```<div align="center">
+  <a href="https://instagram.com/oneinagoogolplex._" target="_blank"><img src="./btn_instagram.svg" width="33.3%" /></a><a href="mailto:navneetkrgupta01@gmail.com"><img src="./btn_email.svg" width="33.3%" /></a><a href="https://github.com/Navneet-2008" target="_blank"><img src="./btn_github.svg" width="33.3%" /></a>
+</div>```
 
 Do not insert spaces or line breaks between the three button images.
 
