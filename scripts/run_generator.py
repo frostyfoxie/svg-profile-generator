@@ -36,8 +36,7 @@ DEFAULT_CONFIG = {
     "skills": ["Python", "JavaScript", "AI / ML", "UI / UX", "Git", "Problem Solving"],
     "tech_stack": [
         "python", "javascript", "typescript", "react", "nextdotjs",
-        "github", "git", "html5", "css3"
-    ],
+        "github", "git", "html5"],
 }
 
 FALLBACK_EMAIL_SVG = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#475569" d="M2.5 5.5A2.5 2.5 0 0 1 5 3h14a2.5 2.5 0 0 1 2.5 2.5v13A2.5 2.5 0 0 1 19 21H5a2.5 2.5 0 0 1-2.5-2.5v-13Zm2.8-.2 6.7 5.15 6.7-5.15H5.3Zm13.7 13.2V8.25l-6.08 4.68a1.5 1.5 0 0 1-1.84 0L5 8.25v10.25c0 .39.31.7.7.7h12.6c.39 0 .7-.31.7-.7Z"/></svg>"""
