@@ -1,5 +1,10 @@
 name: SVG Profile Generator
-description: Generate and optionally commit an animated GitHub profile SVG with one workflow step
+description: Generate a polished animated GitHub profile SVG from your GitHub data with almost no setup
+
+branding:
+  icon: user
+  color: purple
+
 inputs:
   github-token:
     description: GitHub token used to read profile and contribution data
@@ -25,6 +30,7 @@ inputs:
     description: Commit generated SVG files automatically
     required: false
     default: 'true'
+
 runs:
   using: composite
   steps:
@@ -37,6 +43,7 @@ runs:
         INPUT_OUTPUT_DIRECTORY: ${{ inputs.output-directory }}
         INPUT_SOURCE_REF: ${{ inputs.source-ref }}
       run: python "${{ github.action_path }}/scripts/run_generator.py"
+
     - name: Commit generated profile
       if: ${{ inputs.commit == 'true' }}
       shell: bash
