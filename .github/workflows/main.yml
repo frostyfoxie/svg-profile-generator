@@ -1,0 +1,19 @@
+name: Update GitHub Profile SVG
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/profile.json'
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: frostyfoxie/svg-profile-generator@v1
